@@ -8,7 +8,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-public class SwaggerCfg {
+/*public class SwaggerCfg {
     @Configuration
     @EnableSwagger2
     public class SwaggerConfig {
@@ -22,4 +22,4 @@ public class SwaggerCfg {
                     .paths(PathSelectors.any())
                     .build();
         }}
-}
+}*/
