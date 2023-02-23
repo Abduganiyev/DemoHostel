@@ -55,10 +55,6 @@ public class UserServiceImpl implements UserService {
                 user.setEmail(dto.getEmail());
             }
 
-            if (!user.getPassword().equals(dto.getPassword())) {
-                user.setPassword(dto.getPassword());
-            }
-
             Set<Role> newRoleSet = new HashSet<>();
             Set<Long> roleIds1 = dto.getRoleIds();
             for (Long aLong : roleIds1) {

@@ -3,7 +3,6 @@ package com.example.demohotel.entity;
 
 import lombok.*;
 import org.hibernate.Hibernate;
-import org.springframework.security.core.GrantedAuthority;
 import com.example.demohotel.entity.template.AbcEntity;
 
 import javax.persistence.Column;
@@ -16,15 +15,10 @@ import java.util.Objects;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Role extends AbcEntity implements GrantedAuthority{
+public class Role extends AbcEntity{
 
     @Column(nullable = false, unique = true)
     private String name;
-
-    @Override
-    public String getAuthority() {
-        return null;
-    }
 
     @Override
     public boolean equals(Object o) {
