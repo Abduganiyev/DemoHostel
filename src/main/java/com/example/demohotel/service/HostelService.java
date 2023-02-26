@@ -7,7 +7,7 @@ import com.example.demohotel.entity.User;
 import java.util.List;
 
 public interface HostelService {
-    List<Hostel> findAllHostel();
+    List<Hostel> findAll();
 
     Hostel findHostelById(Long hostelId);
 

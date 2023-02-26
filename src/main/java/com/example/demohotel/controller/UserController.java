@@ -1,5 +1,7 @@
 package com.example.demohotel.controller;
 
+import com.example.demohotel.dto.RoleCreateDto;
+import com.example.demohotel.entity.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import com.example.demohotel.dto.UserCreateDto;
@@ -14,6 +16,12 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+
+    @PostMapping
+    public User save(@RequestBody UserCreateDto dto) {
+        return userService.saveUser(dto);
+    }
+
 
     @GetMapping
     public List<User> findAll() {

@@ -11,7 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HostelServiceImpl implements HostelService {
     @Override
-    public List<Hostel> findAllHostel() {
+    public List<Hostel> findAll() {
         return null;
     }
 

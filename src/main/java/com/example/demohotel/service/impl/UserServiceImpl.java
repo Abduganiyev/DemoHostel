@@ -11,10 +11,7 @@ import com.example.demohotel.repository.RoleRepository;
 import com.example.demohotel.repository.UserRepository;
 import com.example.demohotel.service.UserService;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -81,5 +78,16 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(userId);
 
         return "Successfully Deleted";
+    }
+
+    @Override
+    public User saveUser(UserCreateDto dto) {
+        Set<Role> roles = new HashSet<>();
+        for (Long roleId : dto.getRoleIds()) {
+            roles.add(roleRepository.findById(roleId).get());
+        }
+        User user = new User(dto.getFirstname(), dto.getLastname(), dto.getEmail(), roles);
+        User save = userRepository.save(user);
+        return save;
     }
 }
