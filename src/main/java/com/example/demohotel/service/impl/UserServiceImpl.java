@@ -92,7 +92,7 @@ public class UserServiceImpl implements UserService {
             roles.add(roleRepository.findById(roleId).get());
         }
 
-        for (Long ids : dto.getHoselsId()) {
+        for (Long ids : dto.getHostelsId()) {
             hostels.add(hostelRepository.findById(ids).get());
         }
         User user = new User(dto.getFirstname(), dto.getLastname(), dto.getEmail(), roles, hostels);
