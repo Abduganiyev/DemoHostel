@@ -1,6 +1,8 @@
 package com.example.demohotel.service.impl;
 
 
+import com.example.demohotel.entity.Hostel;
+import com.example.demohotel.repository.HostelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.example.demohotel.dto.UserCreateDto;
@@ -19,6 +21,8 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+
+    private final HostelRepository hostelRepository;
 
     @Override
     public List<User> findAllUser() {
@@ -83,10 +87,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User saveUser(UserCreateDto dto) {
         Set<Role> roles = new HashSet<>();
+        Set<Hostel> hostels = new HashSet<>();
         for (Long roleId : dto.getRoleIds()) {
             roles.add(roleRepository.findById(roleId).get());
         }
-        User user = new User(dto.getFirstname(), dto.getLastname(), dto.getEmail(), roles);
+
+        for (Long ids : dto.getHoselsId()) {
+            hostels.add(hostelRepository.findById(ids).get());
+        }
+        User user = new User(dto.getFirstname(), dto.getLastname(), dto.getEmail(), roles, hostels);
         User save = userRepository.save(user);
         return save;
     }

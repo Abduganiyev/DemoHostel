@@ -1,5 +1,6 @@
 package com.example.demohotel.service.impl;
 
+import com.example.demohotel.dto.HostelCreateDto;
 import com.example.demohotel.entity.Hostel;
 import com.example.demohotel.service.HostelService;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,16 @@ public class HostelServiceImpl implements HostelService {
 
     @Override
     public String removeHostel(Long hostelId) {
+        return null;
+    }
+
+    @Override
+    public Hostel saveHostel(HostelCreateDto dto) {
+        return null;
+    }
+
+    @Override
+    public Hostel updateHostel(Long hostelId, HostelCreateDto dto) {
         return null;
     }
 }
