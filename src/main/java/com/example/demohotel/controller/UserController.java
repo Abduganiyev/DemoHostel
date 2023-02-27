@@ -1,7 +1,5 @@
 package com.example.demohotel.controller;
 
-import com.example.demohotel.dto.RoleCreateDto;
-import com.example.demohotel.entity.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import com.example.demohotel.dto.UserCreateDto;
