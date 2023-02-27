@@ -29,6 +29,6 @@ public class User extends AbcEntity {
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Role> roles = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private Set<Hostel> hosels = new HashSet<>();
+    @ManyToOne
+    private Hostel hosels;
 }

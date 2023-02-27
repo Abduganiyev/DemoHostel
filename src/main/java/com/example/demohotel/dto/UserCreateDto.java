@@ -21,5 +21,5 @@ public class UserCreateDto {
     private String lastname;
     private String email;
     private Set<Long> roleIds;
-    private Set<Long> hostelsId;
+    private Long hostelId;
 }

@@ -36,9 +36,10 @@ public class HostelServiceImpl implements HostelService {
                 dto.getRoom_counts(),
                 dto.getFree_room_counts(),
                 dto.getFull_room_counts(),
-                dto.isPrestige(),
+                dto.getPrestige(),
                 dto.getAddress(),
-                dto.getFormed());
+                dto.getFormed(),
+                dto.getWorkers());
         Hostel save = hostelRepository.save(hostel);
         return save;
     }

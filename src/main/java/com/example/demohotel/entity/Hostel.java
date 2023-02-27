@@ -28,12 +28,15 @@ public class Hostel extends AbcEntity {
     private Long full_room_counts;
 
     @Column(nullable = false)
-    private boolean prestige;
+    private String prestige;
 
     @Column(nullable = false)
     private String address;
 
     @Column(nullable = false)
     private String formed;
+
+    @Column(nullable = false)
+    private Long workers;
 
 }

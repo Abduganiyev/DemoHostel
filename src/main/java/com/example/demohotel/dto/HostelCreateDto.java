@@ -12,7 +12,8 @@ public class HostelCreateDto {
     private Long room_counts;
     private Long free_room_counts;
     private Long full_room_counts;
-    private boolean prestige;
+    private String prestige;
     private String address;
     private String formed;
+    private Long workers;
 }

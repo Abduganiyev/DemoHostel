@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-
     private final HostelRepository hostelRepository;
 
     @Override
@@ -87,15 +86,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public User saveUser(UserCreateDto dto) {
         Set<Role> roles = new HashSet<>();
-        Set<Hostel> hostels = new HashSet<>();
+        Hostel hostel = new Hostel();
         for (Long roleId : dto.getRoleIds()) {
-            roles.add(roleRepository.findById(roleId).get());
+            Role role = roleRepository.findById(roleId).get();
+            if (role.getName().toLowerCase()=="xodim") {
+                Hostel byId = hostelRepository.getById(dto.getHostelId());
+                byId.setWorkers(byId.getWorkers()+1);
+                Hostel save = hostelRepository.save(byId);
+            }
+            roles.add(role);
         }
 
-        for (Long ids : dto.getHostelsId()) {
-            hostels.add(hostelRepository.findById(ids).get());
-        }
-        User user = new User(dto.getFirstname(), dto.getLastname(), dto.getEmail(), roles, hostels);
+        hostel = hostelRepository.findById(dto.getHostelId()).get();
+        User user = new User(dto.getFirstname(), dto.getLastname(), dto.getEmail(), roles, hostel);
         User save = userRepository.save(user);
         return save;
     }
