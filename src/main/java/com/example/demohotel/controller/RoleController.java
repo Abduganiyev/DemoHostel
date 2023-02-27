@@ -25,17 +25,6 @@ public class RoleController {
         return roleService.findAll();
     }
 
-    @GetMapping("/{role_id}")
-    public Role findById(@PathVariable("role_id") Long roleId) {
-        return roleService.findById(roleId);
-    }
-
-    @PutMapping("/{role_id}")
-    public Role edit(@PathVariable("role_id") Long roleId,
-                     @RequestBody RoleCreateDto dto) {
-        return roleService.updateRole(roleId, dto);
-    }
-
     @DeleteMapping("/{role_id}")
     public String remove(@PathVariable("role_id") Long roleId) {
         return roleService.removeRoleById(roleId);
